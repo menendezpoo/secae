@@ -1,5 +1,6 @@
 import {Renderable} from "./Renderable";
-import {Viewport} from "../src/Viewport";
+import {Viewport} from "./Viewport";
+import {UpdateInfo} from "./UpdateInfo";
 
 export class Scene extends Renderable {
 
@@ -9,16 +10,17 @@ export class Scene extends Renderable {
         super();
     }
 
-    onUpdate() {
-        super.onUpdate();
-
-        this.items.forEach(item => item.onUpdate());
+    update(info: UpdateInfo) {
+        super.update(info);
+        this.items.forEach(item => {
+            item.update(info)
+        });
     }
 
-    onDraw(viewport: Viewport) {
-        super.onDraw(viewport);
+    draw(viewport: Viewport) {
+        super.draw(viewport);
 
-        this.items.forEach(item => item.onDraw(viewport));
+        this.items.forEach(item => item.draw(viewport));
     }
 
     removeItemAt(index: number): this{

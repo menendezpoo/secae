@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Se Cae</title>
-
+    <script src="res/js/require.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-<canvas width="500" height="500" id="viewport"></canvas>
-<script src="js/main.js"></script>
+<canvas width="1000" height="700" id="viewport" style="background: #7AA3D6; opacity: 1;"></canvas>
+<script>
+    require(['js/main'], function(main){ main.run() });
+</script>
 </body>
 </html>
