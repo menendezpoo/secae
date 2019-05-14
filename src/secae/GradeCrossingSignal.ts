@@ -40,7 +40,7 @@ export class GradeCrossingSignal extends SpriteGroup{
 
         this.cantilever.degrees = -90;
 
-        this.bounds = this.bounds.withSizeOf(450, 800);
+        this.bounds = this.bounds.withSizeOf(450, 760);
 
     }
 

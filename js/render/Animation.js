@@ -1,4 +1,4 @@
-define(["require", "exports", "../util/Logger", "./Eventable"], function (require, exports, Logger_1, Eventable_1) {
+define(["require", "exports", "./Eventable"], function (require, exports, Eventable_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Animation extends Eventable_1.Eventable {
@@ -19,12 +19,10 @@ define(["require", "exports", "../util/Logger", "./Eventable"], function (requir
             return window.performance.now();
         }
         start() {
-            Logger_1.Logger.time(`Anim`);
             this.started = true;
             this.running = true;
         }
         end() {
-            Logger_1.Logger.timeEnd(`Anim`);
             this.ended = true;
             this.running = false;
             this.raise('finish');

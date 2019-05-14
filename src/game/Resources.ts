@@ -27,4 +27,12 @@ export class Resources {
         return Resources.imgBuffer('light-off')
     }
 
+    static get cloud1(): HTMLImageElement{
+        return Resources.imgBuffer('cloud1')
+    }
+
+    static get cloud2(): HTMLImageElement{
+        return Resources.imgBuffer('cloud2')
+    }
+
 }

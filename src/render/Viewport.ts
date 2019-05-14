@@ -1,6 +1,5 @@
 import {Context2D} from "./Context2D";
 import {Scene} from "./Scene";
-import {Logger} from "../util/Logger";
 import {Rectangle} from "./Rectangle";
 import {UpdateInfo} from "./UpdateInfo";
 
@@ -35,7 +34,6 @@ export class Viewport{
     }
 
     private adjustToViewport(){
-        Logger.info(`adjusting to viewport`);
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.bounds = this.bounds.withSizeOf(this.canvas.width, this.canvas.height);

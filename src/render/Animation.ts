@@ -25,13 +25,11 @@ export abstract class Animation extends Eventable{
     }
 
     start(){
-        Logger.time(`Anim`);
         this.started = true;
         this.running = true;
     }
 
     end(){
-        Logger.timeEnd(`Anim`);
         this.ended = true;
         this.running = false;
         this.raise('finish');
