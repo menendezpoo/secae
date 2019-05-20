@@ -52,9 +52,9 @@ export class ImageSprite extends Sprite{
             viewport.context.raw.save();
             viewport.context.raw.translate(this.bounds.left + this.center.x, this.bounds.top + this.center.y );
             viewport.context.raw.rotate(this.degrees * Math.PI / 180);
-            viewport.context.drawImage(this.image, new Point(-this.center.x, -this.center.y));
+            viewport.context.drawImage(this.image, this.bounds.withLocation(new Point(-this.center.x, -this.center.y)));
         }else{
-            viewport.context.drawImage(this.image, this.bounds.location);
+            viewport.context.drawImage(this.image, this.bounds);
         }
 
 

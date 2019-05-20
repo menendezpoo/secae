@@ -1,38 +1,37 @@
+import {ResLoader} from "./ResLoader";
+
 export class Resources {
 
-    static png(name: string){
-        return `/secae/res/imgs/${name}.png`;
+    static get arm(): HTMLImageElement{
+        return ResLoader.imgBuffer('arm')
     }
 
-    static pngImage(name: string): HTMLImageElement{
-        const img = document.createElement('img');
-        img.src = Resources.png(name);
-        return img;
-    }
-
-    private static _imgBuffer: { [index: string]: HTMLImageElement} = {};
-
-    static imgBuffer(name: string): HTMLImageElement{
-        if(!(name in Resources._imgBuffer)) {
-            Resources._imgBuffer[name] = Resources.pngImage(name);
-        }
-        return Resources._imgBuffer[name];
+    static get cross(): HTMLImageElement{
+        return ResLoader.imgBuffer('cross')
     }
 
     static get lightOn(): HTMLImageElement{
-        return Resources.imgBuffer('light-on')
+        return ResLoader.imgBuffer('light-on')
     }
 
     static get lightOff(): HTMLImageElement{
-        return Resources.imgBuffer('light-off')
+        return ResLoader.imgBuffer('light-off')
+    }
+
+    static get lightSupport(): HTMLImageElement{
+        return ResLoader.imgBuffer('light-support')
     }
 
     static get cloud1(): HTMLImageElement{
-        return Resources.imgBuffer('cloud1')
+        return ResLoader.imgBuffer('cloud1')
     }
 
     static get cloud2(): HTMLImageElement{
-        return Resources.imgBuffer('cloud2')
+        return ResLoader.imgBuffer('cloud2')
+    }
+
+    static get post(): HTMLImageElement{
+        return ResLoader.imgBuffer('post')
     }
 
 }

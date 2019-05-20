@@ -19,12 +19,8 @@ export class SkyScene extends Scene{
     constructor(){
         super();
 
-        this.clouds.push(this.randomCloud());
-        this.clouds.push(this.randomCloud());
-        this.clouds.push(this.randomCloud());
-        this.clouds.push(this.randomCloud());
-        this.clouds.push(this.randomCloud());
-        this.clouds.push(this.randomCloud());
+        for(let i = 0; i < 5 + Math.random() * 10; i++)
+            this.clouds.push(this.randomCloud());
 
         this.clouds.forEach(cloud => this.items.push(cloud));
     }
@@ -32,6 +28,8 @@ export class SkyScene extends Scene{
     private randomCloud(): ImageSprite{
 
         const img = new ImageSprite(Math.random() > 0.5 ? Resources.cloud1 : Resources.cloud2);
+
+        img.bounds = img.bounds.scaleToHeight(img.bounds.height * Math.random());
 
         return img;
     }

@@ -1,13 +1,12 @@
 import {Rectangle} from "./Rectangle";
 import {Color} from "./Color";
-import {Point} from "./Point";
 
 export class Context2D{
 
     constructor(readonly raw: CanvasRenderingContext2D){}
 
-    drawImage(image: HTMLImageElement, point: Point){
-        this.raw.drawImage(image, point.x, point.y, image.width, image.height);
+    drawImage(image: HTMLImageElement, r: Rectangle){
+        this.raw.drawImage(image, r.left, r.top, r.width, r.height);
     }
 
     fillRectangle(r: Rectangle, color: Color){

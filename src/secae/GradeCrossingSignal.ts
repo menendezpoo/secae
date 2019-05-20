@@ -1,5 +1,4 @@
 import {SpriteGroup} from "../render/SpriteGroup";
-import {Color} from "../render/Color";
 import {ImageSprite} from "../render/ImageSprite";
 import {Resources} from "../game/Resources";
 import {Viewport} from "../render/Viewport";
@@ -9,12 +8,12 @@ import {UpdateInfo} from "../render/UpdateInfo";
 
 export class GradeCrossingSignal extends SpriteGroup{
 
-    readonly post = ImageSprite.fromUrl(Resources.png('post'));
-    readonly cantilever = ImageSprite.fromUrl(Resources.png('arm'));
-    readonly lightSupport = ImageSprite.fromUrl(Resources.png('light-support'));
+    readonly post = new ImageSprite(Resources.post);
+    readonly cantilever = new ImageSprite(Resources.arm);
+    readonly lightSupport = new ImageSprite(Resources.lightSupport);
     readonly leftLight = new ImageSprite(Resources.lightOff);
     readonly rightLight = new ImageSprite(Resources.lightOff);
-    readonly cross = ImageSprite.fromUrl(Resources.png('cross'));
+    readonly cross = new ImageSprite(Resources.cross);
 
     blocked = false;
 
@@ -73,13 +72,13 @@ export class GradeCrossingSignal extends SpriteGroup{
         this.lightSupport.bounds = this.lightSupport.bounds.withLeft(this.bounds.width / 2 - this.lightSupport.bounds.width / 2);
         this.lightSupport.bounds = this.lightSupport.bounds.withTop(lightsTop);
 
-        this.leftLight.bounds = this.leftLight.bounds.withTop(lightsTop);
-        this.rightLight.bounds = this.rightLight.bounds.withTop(lightsTop);
+        this.leftLight.bounds = this.leftLight.bounds.withTop(lightsTop + 70);
+        this.rightLight.bounds = this.rightLight.bounds.withTop(lightsTop + 70);
 
         this.leftLight.bounds = this.leftLight.bounds.withLeft(this.post.bounds.left - this.leftLight.bounds.width);
         this.rightLight.bounds = this.rightLight.bounds.withLeft(this.post.bounds.right);
 
-        this.cantilever.bounds = this.cantilever.bounds.withTop(this.leftLight.bounds.bottom + 100);
+        this.cantilever.bounds = this.cantilever.bounds.withTop(this.leftLight.bounds.bottom + 200);
         this.cantilever.bounds = this.cantilever.bounds.withLeft(this.bounds.width / 2 - 34);
 
         if(this.blinking) {
