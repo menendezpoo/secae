@@ -28,7 +28,7 @@ export class GradeCrossingSignal extends SpriteGroup{
     constructor() {
         super();
 
-        this.cantilever.center = new Point(34, 34);
+        this.cantilever.center = new Point(270, 91);
 
         this.items.push(this.post);
         this.items.push(this.cantilever);
@@ -79,7 +79,7 @@ export class GradeCrossingSignal extends SpriteGroup{
         this.rightLight.bounds = this.rightLight.bounds.withLeft(this.post.bounds.right);
 
         this.cantilever.bounds = this.cantilever.bounds.withTop(this.leftLight.bounds.bottom + 200);
-        this.cantilever.bounds = this.cantilever.bounds.withLeft(this.bounds.width / 2 - 34);
+        this.cantilever.bounds = this.cantilever.bounds.withLeft(this.bounds.width / 2 - this.cantilever.center.x);
 
         if(this.blinking) {
 
